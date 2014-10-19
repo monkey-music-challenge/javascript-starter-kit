@@ -1,45 +1,48 @@
-# javascript-starter-kit
+# Monkey Music Challenge: JavaScript Starter Kit
 
-Before you get started here, make sure you have Signed Up at http://monkeymusicchallenge.com. Also make sure that you have registered your team for the warmup and received your API key at http://warmup.monkeymusicchallenge.com. Then head over to your team page to get more detailed instructions on the game itself.
+Before you get started here, make sure you have signed up at http://monkeymusicchallenge.com.
 
-To understand this starter kit you will need to have basic knowledge of
+To participate in the warmup, go to http://warmup.monkeymusicchallenge.com and get an API key for your team.
+
+Then head over to your team page to get more detailed instructions on the game itself.
+
+To understand this starter kit you will need to have basic knowledge of:
 
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [nodejs](http://nodejs.org/)
 * [npm](https://www.npmjs.org/)
 
 You will also need to have `node` and `npm` installed properly on your system.
-Google can help you with this.
+
+Google can help you get everything set up!
 
 ## Usage
 
 First of all, `fork` this repository to your own github user.
 
-Now open up a terminal and run the following commands:
+Next, open up a terminal and run the following commands:
 
 ```bash
-git clone git@github.com:<username>/javascript-starter-kit.git
+git clone git@github.com:<your-github-username>/javascript-starter-kit.git
 cd javascript-starter-kit
 npm install
-TEAM=myteamname API=XXXX node index.js
+node index.js <your-team-name> <your-api-key>
 ```
 
-These are all UNIX commands. Windows users are recommended [Cygwin](https://www.cygwin.com/) to make this work.
+These are all UNIX commands. Got Windows? We recommend [Cygwin](https://www.cygwin.com/).
 
-After running the above sequence, the monkey should be running around randomly on your team page.
-
-The program should exit with a simple "Game over." statement. Now get coding!
-
+Make sure to surf to your team page before running the above commands... Your monkey is waiting for you!
 
 ## Get started
 
-`index.js` contains the boilerplate needed to communicate with the server. You should not need to change anything in here unless we have done something wrong.
+`index.js` contains the boilerplate needed to communicate with the server. You should not need to change anything in here.
 
-`monkey.js` is quite confused and seemingly random at the moment.
+In `ai.js`, you can put your AI code.
 
-In order to complete the challenge, implement your AI so that `monkey.move` makes the right choices. Pathfinding and AI ftw!
+In order to complete the challenge, guide your monkey through the level, pick up all the music and get it to the user!
 
+AI and pathfinding ftw!
 
 ## Bugs
 
-If you find any bugs in our code. Please submit an issue or a pull request to the original repository.
+When you find bugs in our code, please submit an issue or a pull request to the original repository.
