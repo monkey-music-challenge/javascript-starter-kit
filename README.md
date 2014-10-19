@@ -39,3 +39,7 @@ The program should exit with a simple "Game over." statement. Now get coding!
 
 In order to complete the challenge, implement your AI so that `monkey.move` makes the right choices. Pathfinding and AI ftw!
 
+
+## Bugs
+
+If you find any bugs in our code. Please submit an issue or a pull request to the original repository.
