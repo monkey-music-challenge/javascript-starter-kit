@@ -1,6 +1,8 @@
 # javascript-starter-kit
 
-To understand this start kit you will need to have basic knowledge of
+Before you get started here, make sure you have Signed Up at http://monkeymusicchallenge.com. Also make sure that you have registered your team for the warmup and received your API key at http://warmup.monkeymusicchallenge.com. Then head over to your team page to get more detailed instructions on the game itself.
+
+To understand this starter kit you will need to have basic knowledge of
 
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [nodejs](http://nodejs.org/)
