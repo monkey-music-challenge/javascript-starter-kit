@@ -13,12 +13,18 @@ Google can help you with this.
 
 ## Usage
 
+First of all, `fork` this repository to your own github user.
+
+Now open up a terminal and run the following commands:
+
 ```bash
-git clone git@github.com:monkeymusicchallenge/javascript-starter-kit.git
+git clone git@github.com:<username>/javascript-starter-kit.git
 cd javascript-starter-kit
 npm install
 TEAM=myteamname API=XXXX node index.js
 ```
+
+These are all UNIX commands. Windows users are recommended [Cygwin](https://www.cygwin.com/) to make this work.
 
 After running the above sequence, the monkey should be running around randomly on your team page.
 
