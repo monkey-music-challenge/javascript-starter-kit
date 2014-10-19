@@ -7,7 +7,7 @@ var serverUrl = process.env.SERVER_URL || 'http://warmup.monkeymusicchallenge.c
 var teamName = process.argv[2];
 var apiKey = process.argv[3];
 if (!teamName || !apiKey) {
-  console.log('Usage: node index.js <your-team-name> <your-api-key>')
+  console.log('Usage: node index.js <your-team-name> <your-api-key>');
   process.exit(1);
 }
 
@@ -32,7 +32,7 @@ var ai = require('./ai');
 // Every time we POST a command to the server, we get a reply back
 function handleReplyFromServer(error, response, responseBody) {
   if (error) return console.error(error);
-  if (response.statusCode !== 200) return console.error(body);
+  if (response.statusCode !== 200) return console.error(responseBody);
 
   // The server replies with the current state of the game
   var currentGameState = responseBody;
@@ -40,7 +40,7 @@ function handleReplyFromServer(error, response, responseBody) {
   // The state tells you if you have any turns left
   if (currentGameState.turns <= 0) {
     // If the game is over, our server will tell you how you did
-    // You can also see how you did on 
+    // You can also see how you did on
     // warmup.monkeymusicchallenge.com/<your-team-name>
     console.log('Game over! Here\'s what happened:');
     console.log(currentGameState.hint);

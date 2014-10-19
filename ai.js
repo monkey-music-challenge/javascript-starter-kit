@@ -65,6 +65,18 @@ function move(gameState) {
   //   "position": [0, 0]
   // }
   //
+  // Say you want to pick up the song below us.
+  // We send down { "command": "move", "direction": "left", ... }
+  // to the server, you'll get back:
+  //
+  // {
+  //   "layout": [["monkey", "empty"]
+  //              ["empty",   "empty"]]
+  //   "position": [0, 0]
+  // }
+  //
+  // Notice that the monkey did not move to the songs tile. But the song is gone!
+  //
   // Got it? Sweet! This message will self destruct in five seconds...
 
   // TODO: You may want to do something smarter here
