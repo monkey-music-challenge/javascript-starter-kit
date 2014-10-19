@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "pathfinding": "^0.4.12",
     "request-json": "^0.4.12"
   }
 }
