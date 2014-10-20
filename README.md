@@ -21,7 +21,7 @@ this repository to your own GitHub user.
 
 Then, open up a terminal and:
 
-```bash
+```
 git clone git@github.com:<your-github-username>/javascript-starter-kit.git
 cd javascript-starter-kit
 npm install
