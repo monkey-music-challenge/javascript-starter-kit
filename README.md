@@ -52,4 +52,4 @@ Have fun!
 
 ## Bugs
 
-When you find bugs in our code, please submit an issue or a pull request to the original repository.
+When you find bugs in our code, please submit an issue or pull request to our [original starter kit repository](https://github.com/monkey-music-challenge/javascript-starter-kit).
