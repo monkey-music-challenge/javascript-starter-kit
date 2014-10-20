@@ -16,7 +16,7 @@ Google can help you get everything set up!
 
 Prefer another language? Check out our [Java](https://github.com/monkey-music-challenge/java-starter-kit) or [Python](https://github.com/monkey-music-challenge/python-starter-kit) starter kits.
 
-## Usage
+## Getting started
 
 Start by [forking](https://github.com/monkey-music-challenge/javascript-starter-kit/fork)
 this repository to your own GitHub user.
@@ -36,7 +36,7 @@ Make sure to surf to your team page before running the above commands...
 
 Your monkey is waiting for you!
 
-## Get started
+## How to complete the warmup challenge
 
 In `index.js`, we've put all the boilerplate code needed to communicate with the Monkey Music server.
 
