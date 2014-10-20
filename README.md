@@ -1,14 +1,16 @@
 # JavaScript starter kit
 
+## Prerequisites
+
 First of all, go to http://monkeymusicchallenge.com, sign up and get your API key.
 
-To understand this starter kit you will need to have basic knowledge of:
+For this starter kit, you will need to have basic knowledge of:
 
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [nodejs](http://nodejs.org/)
+* [Node.js](http://nodejs.org/)
 * [npm](https://www.npmjs.org/)
 
-You will also need to have `node` and `npm` installed properly on your system.
+Make sure to have [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed on your system.
 
 Google can help you get everything set up!
 
@@ -36,7 +38,7 @@ Your monkey is waiting for you!
 
 ## Get started
 
-In `index.js`, we've put all the boilerplate code needed to communicate with the server.
+In `index.js`, we've put all the boilerplate code needed to communicate with the Monkey Music server.
 
 We suggest you go straight to `ai.js` and start playing around with the code.
 
