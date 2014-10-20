@@ -1,7 +1,6 @@
 // This is where you put your AI code!
 //
-// The AI code looks at the current game state and decides
-// the monkey's next move.
+// The AI looks at the current game state and decides the monkey's next move.
 function move(gameState) {
 
   // Every game has a limited number of turns. Use every turn wisely!

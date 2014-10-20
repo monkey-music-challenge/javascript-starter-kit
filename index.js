@@ -8,17 +8,13 @@ var teamName = process.argv[2];
 var apiKey = process.argv[3];
 
 // Don't forget to provide the right command line arguments
-if (!teamName || !apiKey || apiKey.length !== 28) {
+if (!teamName || !apiKey) {
   console.log('Usage: node index.js <your-team-name> <your-api-key>\n');
   if (!teamName) {
     console.log('  Missing argument: <your-team-name>');
   }
   if (!apiKey) {
     console.log('  Missing argument: <your-api-key>');
-  }
-  // All our API keys are 28 characters long, make sure you copy-paste it properly
-  if (apiKey && apiKey.length !== 28) {
-    console.log('  Invalid API key.');
   }
   process.exit(1);
 }
@@ -53,8 +49,8 @@ function handleReplyFromServer(error, response, responseBody) {
   // The server replies with the current state of the game
   var currentGameState = responseBody;
 
-  // The state tells you if you have any turns left
-  if (currentGameState.turns <= 0) {
+  // The current game state tells you if you have any turns left
+  if (currentGameState.turns === 0) {
     // If the game is over, our server will tell you how you did
     // Go to warmup.monkeymusicchallenge.com/<your-team-name> for more details
     console.log('\nGame over!\n');
@@ -64,7 +60,7 @@ function handleReplyFromServer(error, response, responseBody) {
 
   console.log('Remaining turns: ' + currentGameState.turns);
 
-  // You then use your AI to decide in which direction to move...
+  // Use your AI to decide in which direction to move...
   var nextMoveDirection = ai.move(currentGameState);
 
   // ...and send a new move command to the server
@@ -74,7 +70,7 @@ function handleReplyFromServer(error, response, responseBody) {
     apiKey: apiKey
   };
 
-  // After sending your new move, you'll get a new reply,
+  // After sending your next move, you'll get a new reply,
   // and this function will run again
   client.post(teamUrl, nextMoveCommand, handleReplyFromServer);
 }
