@@ -38,11 +38,13 @@ Your monkey is waiting for you!
 
 In `index.js`, we've put all the boilerplate code needed to communicate with the server.
 
-You should not need to change anything in here.
+We suggest you go straight to `ai.js` and start playing around with the code.
 
-Instead, go to `ai.js` and start playing around with the code.
+Remember, your mission is to:
 
-Remember, your mission is to guide your monkey through the warmup level, pick up all the music items and get them to the eagerly awaiting Spotify user.
+* guide your monkey through the warmup level
+* pick up all the music items
+* get them to the eagerly awaiting Spotify user
 
 Have fun!
 
