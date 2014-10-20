@@ -1,19 +1,25 @@
 // Hi! Welcome to the Monkey Music Challenge JavaScript starter kit!
 
 // You control your monkey by sending POST requests to the Monkey Music server
-var serverUrl = process.env.SERVER_URL || 'http://warmup.monkeymusicchallenge.com';
+var serverUrl = 'http://warmup.monkeymusicchallenge.com';
 
 // You identify yourselves by your team name and your API key
 var teamName = process.argv[2];
 var apiKey = process.argv[3];
-if (!teamName || !apiKey) {
-  console.log('Usage: node index.js <your-team-name> <your-api-key>');
-  process.exit(1);
-}
 
-// All our API keys are 28 characters long, make sure you copy-paste it properly
-if (!apiKey.length === 28) {
-  console.log('Invalid API key. Please make sure you copy-pasted the entire key.');
+// Don't forget to provide the right command line arguments
+if (!teamName || !apiKey || apiKey.length !== 28) {
+  console.log('Usage: node index.js <your-team-name> <your-api-key>\n');
+  if (!teamName) {
+    console.log('  Missing argument: <your-team-name>');
+  }
+  if (!apiKey) {
+    console.log('  Missing argument: <your-api-key>');
+  }
+  // All our API keys are 28 characters long, make sure you copy-paste it properly
+  if (apiKey && apiKey.length !== 28) {
+    console.log('  Invalid API key.');
+  }
   process.exit(1);
 }
 
@@ -31,8 +37,18 @@ var ai = require('./ai');
 
 // Every time we POST a command to the server, we get a reply back
 function handleReplyFromServer(error, response, responseBody) {
-  if (error) return console.error(error);
-  if (response.statusCode !== 200) return console.error(responseBody);
+  // Hopefully, our server will always be able to handle your requests
+  // but you never know...
+  if (error || response.statusCode !== 200) {
+    console.log('Error! We seem to have trouble talking to the server...\n');
+    if (error) {
+      console.log('  ' + error.name + ': ' + error.message);
+    }
+    if (response.statusCode !== 200) {
+      console.log('  The server replied with status code: ' + response.statusCode);
+    }
+    process.exit(1);
+  }
 
   // The server replies with the current state of the game
   var currentGameState = responseBody;
@@ -40,12 +56,13 @@ function handleReplyFromServer(error, response, responseBody) {
   // The state tells you if you have any turns left
   if (currentGameState.turns <= 0) {
     // If the game is over, our server will tell you how you did
-    // You can also see how you did on
-    // warmup.monkeymusicchallenge.com/<your-team-name>
-    console.log('Game over! Here\'s what happened:');
-    console.log(currentGameState.hint);
+    // Go to warmup.monkeymusicchallenge.com/<your-team-name> for more details
+    console.log('\nGame over!\n');
+    console.log('  ' + currentGameState.hint);
     return;
   }
+
+  console.log('Remaining turns: ' + currentGameState.turns);
 
   // You then use your AI to decide in which direction to move...
   var nextMoveDirection = ai.move(currentGameState);
@@ -74,4 +91,4 @@ var newGameCommand = {
 client.post(teamUrl, newGameCommand, handleReplyFromServer);
 
 // If you have any questions, don't hesitate to drop us an email at
-// monkeymusicchallenge@gmail.com
+// mmc@spotify.com

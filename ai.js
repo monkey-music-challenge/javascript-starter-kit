@@ -8,8 +8,9 @@ function move(gameState) {
   var remainingNumberOfTurns = gameState.turns;
 
   // The level layout is a 2D-matrix (an array of arrays).
-  // Every element is a string, telling you what's located at the
-  // corresponding position on the level.
+  //
+  // Every element in the matrix is a string. The string tells you what
+  // s located at the corresponding position on the level.
   //
   // In the warmup challenge, your objective is to find all music items
   // and deliver them to the eagerly waiting Spotify user.
@@ -20,6 +21,7 @@ function move(gameState) {
   // "user": go here once you've picked up all music items
   //
   // Too easy for you? Good...
+  //
   // The real fun begins when the warmup is over and the competition begins!
   var currentLevelLayout = gameState.layout;
 
@@ -65,17 +67,32 @@ function move(gameState) {
   //   "position": [0, 0]
   // }
   //
-  // Say you want to pick up the song below us.
-  // We send down { "command": "move", "direction": "left", ... }
-  // to the server, you'll get back:
+  // So what about picking stuff up then?
+  //
+  // It's simple!
+  //
+  // Just stand next to something you want to pick up and move towards it.
+  //
+  // For example, say our current game state looks like this:
   //
   // {
-  //   "layout": [["monkey", "empty"]
-  //              ["empty",   "empty"]]
-  //   "position": [0, 0]
+  //   "layout": [["empty", "empty"]
+  //              ["song",  "monkey"]]
+  //   "position": [1, 1],
+  //   "pickedUp": []
   // }
   //
-  // Notice that the monkey did not move to the songs tile. But the song is gone!
+  // When you send { "command": "move", "direction": "left", ... }
+  // to the server, you'll get back:
+  //
+  //   "layout": [["empty",  "empty"]
+  //              ["empty",  "monkey"]]
+  //   "position": [1, 1],
+  //   "pickedUp": ["song"],
+  //   ...
+  // }
+  //
+  // Instead of moving, your monkey successfully picked up the song!
   //
   // Got it? Sweet! This message will self destruct in five seconds...
 

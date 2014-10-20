@@ -1,7 +1,7 @@
 {
   "name": "javascript-starter-kit",
   "version": "1.0.0",
-  "description": "",
+  "description": "JavaScript starter kit for Monkey Music Challenge",
   "main": "index.js",
   "dependencies": {
     "request-json": "^0.4.12"
