@@ -1,6 +1,8 @@
 # JavaScript starter kit
 
-## Prerequisites
+<img src="http://monkeymusicchallenge.com/images/monkey.png" align="right">
+
+### Prerequisites
 
 First of all, go to http://monkeymusicchallenge.com, sign up and get your API key.
 
@@ -16,7 +18,7 @@ Google can help you get everything set up!
 
 Prefer another language? Check out our [Java](https://github.com/monkey-music-challenge/java-starter-kit) or [Python](https://github.com/monkey-music-challenge/python-starter-kit) starter kits.
 
-## Getting started
+### Getting started
 
 Start by [forking](https://github.com/monkey-music-challenge/javascript-starter-kit/fork)
 this repository to your own GitHub user.
@@ -36,7 +38,7 @@ Make sure to surf to your team page before running the above commands...
 
 Your monkey is waiting for you!
 
-## How to complete the warmup challenge
+### How to complete the warmup challenge
 
 In `index.js`, we've put all the boilerplate code needed to communicate with the Monkey Music server.
 
@@ -50,6 +52,6 @@ Remember, your mission is to:
 
 Have fun!
 
-## Bugs
+### Bugs
 
 When you find bugs in our code, please submit an issue or pull request to our [original starter kit repository](https://github.com/monkey-music-challenge/javascript-starter-kit).
