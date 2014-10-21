@@ -43,6 +43,9 @@ function handleReplyFromServer(error, response, responseBody) {
     if (response.statusCode !== 200) {
       console.log('  The server replied with status code: ' + response.statusCode);
     }
+    if (responseBody.message) {
+      console.log('  ' + responseBody.message);
+    }
     process.exit(1);
   }
 
@@ -54,7 +57,7 @@ function handleReplyFromServer(error, response, responseBody) {
     // If the game is over, our server will tell you how you did
     // Go to warmup.monkeymusicchallenge.com/team/<your-team-name> for more details
     console.log('\nGame over!\n');
-    console.log('  ' + currentGameState.hint);
+    console.log('  ' + currentGameState.message);
     return;
   }
 
