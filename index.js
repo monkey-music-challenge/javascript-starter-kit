@@ -24,9 +24,9 @@ var request = require('request-json');
 var client = request.newClient(serverUrl);
 
 // You POST to a team-specific URL:
-// warmup.monkeymusicchallenge.com/<your-team-name>
+// warmup.monkeymusicchallenge.com/team/<your-team-name>
 // Surf to this URL and watch your monkey carry out your commands!
-var teamUrl = '/' + teamName;
+var teamUrl = '/team/' + teamName;
 
 // We've put the AI-code in a separate module
 var ai = require('./ai');
@@ -52,7 +52,7 @@ function handleReplyFromServer(error, response, responseBody) {
   // The current game state tells you if you have any turns left
   if (currentGameState.turns === 0) {
     // If the game is over, our server will tell you how you did
-    // Go to warmup.monkeymusicchallenge.com/<your-team-name> for more details
+    // Go to warmup.monkeymusicchallenge.com/team/<your-team-name> for more details
     console.log('\nGame over!\n');
     console.log('  ' + currentGameState.hint);
     return;
