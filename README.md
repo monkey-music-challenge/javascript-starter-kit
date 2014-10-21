@@ -6,7 +6,7 @@
 
 First of all, go to http://monkeymusicchallenge.com, sign up and get your API key.
 
-For this starter kit, you will need to have basic knowledge of:
+For this starter kit, you will need basic knowledge of:
 
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Node.js](http://nodejs.org/)
