@@ -26,7 +26,7 @@ var client = request.newClient(serverUrl);
 // You POST to a team-specific URL:
 // warmup.monkeymusicchallenge.com/team/<your-team-name>
 // Surf to this URL and watch your monkey carry out your commands!
-var teamUrl = '/team/' + teamName;
+var teamUrl = '/team/' + encodeURIComponent(teamName);
 
 // We've put the AI-code in a separate module
 var ai = require('./ai');
