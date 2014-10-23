@@ -9,7 +9,7 @@ function move(gameState) {
   // The level layout is a 2D-matrix (an array of arrays).
   //
   // Every element in the matrix is a string. The string tells you what
-  // s located at the corresponding position on the level.
+  // located at the corresponding position on the level.
   //
   // In the warmup challenge, your objective is to find all music items
   // and deliver them to the eagerly waiting Spotify user.
