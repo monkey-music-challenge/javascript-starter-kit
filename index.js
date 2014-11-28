@@ -25,7 +25,7 @@ if (!teamName || !apiKey || !gameId) {
 
 // In this starter kit, we use the request-json library to send POST requests
 var request = require('request-json');
-var client = request.newClient(serverUrl);
+var client = request.newClient(gameUrl);
 
 // We've put the AI-code in a separate module
 var ai = require('./ai');
@@ -54,7 +54,7 @@ function handleReplyFromServer(error, response, responseBody) {
   // The current game state tells you if the game is over
   if (currentGameState.isGameOver) {
     // If the game is over, our server will tell you how you did
-    // Go to warmup.monkeymusicchallenge.com/team/<your-team-name> for more details
+    // Go to competition.monkeymusicchallenge.com/team for more details
     console.log('\nGame over!\n');
     return;
   }
@@ -65,13 +65,14 @@ function handleReplyFromServer(error, response, responseBody) {
   // Use your AI to decide in which direction to move...
   var nextCommand = ai.move(currentGameState);
 
-  // Don't forget to include your API key and the game ID
+  // Don't forget to include your teamName, API key and the game ID
   nextCommand.apiKey = apiKey;
   nextCommand.gameId = gameId;
+  nextCommand.team = teamName;
 
   // After sending your next command, you'll get a new reply,
   // and this function will run again
-  client.post(teamUrl, nextMoveCommand, handleReplyFromServer);
+  client.post(gameUrl, nextCommand, handleReplyFromServer);
 }
 
 // Allright, time to get started!
@@ -80,11 +81,12 @@ function handleReplyFromServer(error, response, responseBody) {
 var joinGameCommand = {
   command: 'join game',
   apiKey: apiKey,
-  gameId: gameId
+  gameId: gameId,
+  team: teamName
 };
 
 // Here we go!
-client.post(teamUrl, newGameCommand, handleReplyFromServer);
+client.post(gameUrl, joinGameCommand, handleReplyFromServer);
 
 // If you have any questions, don't hesitate to drop us an email at
 // mmc@spotify.com
