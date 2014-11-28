@@ -29,28 +29,16 @@ Then, open up a terminal and:
 git clone git@github.com:<your-github-username>/javascript-starter-kit.git
 cd javascript-starter-kit
 npm install
-node index.js <your-team-name> <your-api-key>
+node index.js <your-team-name> <your-api-key> <game-id>
 ```
+
+Game ids are acquired through each of the different game pages. Log in to Monkey Music through your browser to get started!
 
 These are all UNIX commands. Got Windows? We recommend [Cygwin](https://www.cygwin.com/).
 
 Make sure to surf to your team page before running the above commands...
 
 Your monkey is waiting for you!
-
-### How to complete the warmup challenge
-
-In `index.js`, we've put all the boilerplate code needed to communicate with the Monkey Music server.
-
-We suggest you go straight to `ai.js` and start playing around with the code.
-
-Remember, your mission is to:
-
-* guide your monkey through the warmup level
-* pick up all the music items
-* get them to the eagerly awaiting Spotify user
-
-Have fun!
 
 ### Bugs
 
