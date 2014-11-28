@@ -1,20 +1,24 @@
 // Hi! Welcome to the Monkey Music Challenge JavaScript starter kit!
 
 // You control your monkey by sending POST requests to the Monkey Music server
-var serverUrl = 'http://warmup.monkeymusicchallenge.com';
+var gameUrl = 'http://competition.monkeymusicchallenge.com/game';
 
 // You identify yourselves by your team name and your API key
 var teamName = process.argv[2];
 var apiKey = process.argv[3];
+var gameId = process.argv[4];
 
 // Don't forget to provide the right command line arguments
-if (!teamName || !apiKey) {
-  console.log('Usage: node index.js <your-team-name> <your-api-key>\n');
+if (!teamName || !apiKey || !gameId) {
+  console.log('Usage: node index.js <your-team-name> <your-api-key> <game-id>\n');
   if (!teamName) {
     console.log('  Missing argument: <your-team-name>');
   }
   if (!apiKey) {
     console.log('  Missing argument: <your-api-key>');
+  }
+  if (!gameId) {
+    console.log('  Missing argument: <game-id>');
   }
   process.exit(1);
 }
@@ -22,11 +26,6 @@ if (!teamName || !apiKey) {
 // In this starter kit, we use the request-json library to send POST requests
 var request = require('request-json');
 var client = request.newClient(serverUrl);
-
-// You POST to a team-specific URL:
-// warmup.monkeymusicchallenge.com/team/<your-team-name>
-// Surf to this URL and watch your monkey carry out your commands!
-var teamUrl = '/team/' + encodeURIComponent(teamName);
 
 // We've put the AI-code in a separate module
 var ai = require('./ai');
@@ -52,38 +51,36 @@ function handleReplyFromServer(error, response, responseBody) {
   // The server replies with the current state of the game
   var currentGameState = responseBody;
 
-  // The current game state tells you if you have any turns left
-  if (currentGameState.turns === 0) {
+  // The current game state tells you if the game is over
+  if (currentGameState.isGameOver) {
     // If the game is over, our server will tell you how you did
     // Go to warmup.monkeymusicchallenge.com/team/<your-team-name> for more details
     console.log('\nGame over!\n');
-    console.log('  ' + currentGameState.message);
     return;
   }
 
-  console.log('Remaining turns: ' + currentGameState.turns);
+  // It also tells you the number of remaining turns
+  console.log('Remaining turns: ' + currentGameState.remainingTurns);
 
   // Use your AI to decide in which direction to move...
-  var nextMoveDirection = ai.move(currentGameState);
+  var nextCommand = ai.move(currentGameState);
 
-  // ...and send a new move command to the server
-  var nextMoveCommand = {
-    command: 'move',
-    direction: nextMoveDirection,
-    apiKey: apiKey
-  };
+  // Don't forget to include your API key and the game ID
+  nextCommand.apiKey = apiKey;
+  nextCommand.gameId = gameId;
 
-  // After sending your next move, you'll get a new reply,
+  // After sending your next command, you'll get a new reply,
   // and this function will run again
   client.post(teamUrl, nextMoveCommand, handleReplyFromServer);
 }
 
 // Allright, time to get started!
 
-// To start a game, we send a 'new game' command to the server
-var newGameCommand = {
-  command: 'new game',
-  apiKey: apiKey
+// To start a game, we send a 'join game' command to the server
+var joinGameCommand = {
+  command: 'join game',
+  apiKey: apiKey,
+  gameId: gameId
 };
 
 // Here we go!
