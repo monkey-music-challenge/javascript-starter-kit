@@ -34,7 +34,7 @@ Game ids are acquired through each of the different game pages. Log in to Monkey
 
 These are all UNIX commands. Got Windows? We recommend [Cygwin](https://www.cygwin.com/).
 
-Make sure to surf to your team page before running the above commands...
+Make sure to surf to your game page before running the above commands...
 
 Your monkey is waiting for you!
 
