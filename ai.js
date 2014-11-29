@@ -30,6 +30,7 @@ function move(gameState) {
   //   score: 3,
   //   position: [0, 1],
   //   inventory: ["trap"],
+  //   inventorySize: 2,
   //   buffs: {"speedy": 3}
   // }
  
